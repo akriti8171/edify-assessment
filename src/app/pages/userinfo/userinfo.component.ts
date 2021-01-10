@@ -8,18 +8,25 @@ import { TodoService } from '../../services/todo.service';
   styleUrls: ['./userinfo.component.css']
 })
 export class UserinfoComponent implements OnInit {
-
-  public todoText: string;
-  constructor(private todoService: TodoService,public authservice: AuthService, private router: Router) { 
-    this.todoText = '';
+  todoList : string[] = [];
+  todo:string="";
+  constructor(public authservice: AuthService, private router: Router) { 
+    this.todoList = JSON.parse(localStorage.getItem('Todos') || '{}')
   }
 
   ngOnInit(): void {
     
   }
  
-  private addTodo(): void {
-    this.todoService.addTodo(this.todoText);
-    this.todoText = '';
+  onAdd(){
+    console.log(this.todo)
+    this.todoList = [...this.todoList,this.todo]
+    localStorage.setItem('Todos', JSON.stringify(this.todoList));
+    console.log("Todos", this.todoList)
+    this.todo =""
+  }
+  onDelete(index:number){
+    this.todoList.splice(index,1);
+    localStorage.setItem('Todos', JSON.stringify(this.todoList));
   }
 }
