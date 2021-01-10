@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./userinfo.component.css']
 })
 export class UserinfoComponent implements OnInit {
-
-  todoList=[];
+  todoList : string[] = [];
   todo:string="";
-  constructor(public authservice: AuthService, private router: Router) { }
+  constructor(public authservice: AuthService, private router: Router) { 
+    this.todoList = JSON.parse(localStorage.getItem('Todos') || '{}')
+  }
 
   ngOnInit(): void {
     
@@ -19,11 +20,13 @@ export class UserinfoComponent implements OnInit {
  
   onAdd(){
     console.log(this.todo)
-    this.todoList=[...this.todoList,this.todo]
-    console.log("Todos",this.todoList)
-    this.todo=""
+    this.todoList = [...this.todoList,this.todo]
+    localStorage.setItem('Todos', JSON.stringify(this.todoList));
+    console.log("Todos", this.todoList)
+    this.todo =""
   }
   onDelete(index:number){
     this.todoList.splice(index,1);
+    localStorage.setItem('Todos', JSON.stringify(this.todoList));
   }
 }
