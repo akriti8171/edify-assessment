@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap");
+
+.todoWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.removeTodo {
+  margin-bottom: 10px;
+  width: 50px;
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  color: whitesmoke;
+  border-color: #212121;
+  background-color: #212121;
+  font-weight: 600;
+  font-family: "Baloo Chettan 2", cursive;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.todo_text {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: "Baloo Chettan 2", cursive;
+}

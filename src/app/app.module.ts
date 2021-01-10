@@ -9,14 +9,16 @@ import { AngularFireModule} from "@angular/fire"
 import { AngularFirestoreModule} from "@angular/fire/firestore"
 import { AngularFireDatabaseModule } from "@angular/fire/database"
 import { environment } from 'src/environments/environment';
-import {FormsModule} from "@angular/forms"
+import {FormsModule} from "@angular/forms";
+import { TodoItemComponent } from './pages/todo-item/todo-item.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserinfoComponent
+    UserinfoComponent,
+    TodoItemComponent
   ],
   imports: [
     BrowserModule,

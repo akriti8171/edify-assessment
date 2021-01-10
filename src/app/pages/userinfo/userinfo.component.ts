@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router'; 
-
+import { TodoService } from '../../services/todo.service';
 @Component({
   selector: 'app-userinfo',
   templateUrl: './userinfo.component.html',
@@ -9,21 +9,17 @@ import { Router } from '@angular/router';
 })
 export class UserinfoComponent implements OnInit {
 
-  todoList=[];
-  todo:string="";
-  constructor(public authservice: AuthService, private router: Router) { }
+  public todoText: string;
+  constructor(private todoService: TodoService,public authservice: AuthService, private router: Router) { 
+    this.todoText = '';
+  }
 
   ngOnInit(): void {
     
   }
  
-  onAdd(){
-    console.log(this.todo)
-    this.todoList=[...this.todoList,this.todo]
-    console.log("Todos",this.todoList)
-    this.todo=""
-  }
-  onDelete(index:number){
-    this.todoList.splice(index,1);
+  private addTodo(): void {
+    this.todoService.addTodo(this.todoText);
+    this.todoText = '';
   }
 }

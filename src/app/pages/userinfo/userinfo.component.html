@@ -8,26 +8,13 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 offset-md-3">
-
-                <div class="input-group">
-                    <input type="text" class="form-control" autofocus="" [(ngModel)]="todo" placeholder="Enter todo" required/>
-                    <button type="submit" class="btn btn-primary" (click)="onAdd()">Add Todo</button>
-                </div>
-
-            <div style="margin:5px 0px">
-                <ul class="list-group">
-                <li class="list-group-item" *ngFor="let item of toDoList;let index =index">
-                    <span class="hover-cursor">
-                    </span>
-                    {{item.title}}
-                    <span class="hover-cursor text-danger pull-right" (click)="onDelete(index)">
-                    <i class="fa fa-trash-o fa-lg"></i>
-                    </span>
-                </li>
-                </ul>
+        <div class="todo-input-wrapper">
+            <div>
+              <input type="text" [(ngModel)]="todoText" value={{todoText}}/>
             </div>
-
-        </div>
+            <div>
+              <button class="btn" (click)="addTodo()">Add</button>
+            </div>
+          </div>
     </div>
 </div>
