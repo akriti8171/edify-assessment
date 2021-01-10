@@ -14,7 +14,7 @@ export class UserinfoComponent implements OnInit {
   constructor(public authservice: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    return this.todoList
+    
   }
  
   onAdd(){
