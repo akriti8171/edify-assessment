@@ -18,7 +18,7 @@ import {FormsModule} from "@angular/forms"
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment),
     AngularFirestoreModule,
     AngularFireDatabaseModule
   ],
