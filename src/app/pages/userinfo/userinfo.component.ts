@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router'; 
 import { TodoService } from '../../services/todo.service';
 @Component({
@@ -10,7 +9,7 @@ import { TodoService } from '../../services/todo.service';
 export class UserinfoComponent implements OnInit {
   todoList : string[] = [];
   todo:string="";
-  constructor(public authservice: AuthService, private router: Router) { 
+  constructor(private router: Router) { 
     this.todoList = JSON.parse(localStorage.getItem('Todos') || '{}')
   }
 
